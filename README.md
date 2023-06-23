@@ -22,7 +22,8 @@ I try to clone doom from the ground up. Not particularly following how DOOM itse
 * Model editor (if 3D models are implemented)
 * Ability to use not only a custom file system but also read the .wad files of the OG DOOMs
 
-## Joural
+## Journal
 
 *10:28PM 6/22/2023 (June 22nd 2023):* Development begins.
+
 *10:39PM 6/22/2023 (June 22nd 2023):* A basic framework of different files is created, pretty much just everything I thought is necessary to start on. First commit starts now.
