@@ -27,3 +27,7 @@ I try to clone doom from the ground up. Not particularly following how DOOM itse
 *10:28PM 6/22/2023 (June 22nd 2023):* Development begins.
 
 *10:39PM 6/22/2023 (June 22nd 2023):* A basic framework of different files is created, pretty much just everything I thought is necessary to start on. First commit starts now.
+
+*10:43PM 6/22/2023 (June 22nd 2023):* I fix spelling error as to not look like an idiot.
+
+*11:01PM 6/22/2023 (June 22nd 2023):* Begun to had utils that will be useful in the future like a rotate function. Also laid ground work in doom.py.
