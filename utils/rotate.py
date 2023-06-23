@@ -5,13 +5,13 @@ def rotate_around_origin(point: tuple, rotation: int=0, size=(600, 600)) -> tupl
     x_coord = (math.sin(rotation_in_radians)*point[0])+(math.cos(rotation_in_radians)*point[1])
     y_coord = math.sin(rotation_in_radians)*point[1]
     return (y_coord+size[0]/2, -(x_coord)+size[1]/2)
-def rotate_around_point(point: tuple, point_around: tuple, rotation: int=0, size=(600, 600)) -> tuple:
-    point = (point[0]-size[0]/2,-(point[1])+size[1]/2,point[-1]) # point coords are in pygame coords and must be corrected
-    point_around = (point_around[0]-size[0]/2,-(point_around[1])+size[1]/2,point_around[-1])
-    # We can just kind off pretend we're rotating the point around the origin by subtracting the "point-to-rotate-around"'s coordinates from the "point-to-rotate"'s
-    if point[0] > point_around[0]: # TODO
-        pass
-    rotation_in_radians = rotation/6.28318531
-    x_coord = (math.sin(rotation_in_radians)*point[0])+(math.cos(rotation_in_radians)*point[1])
-    y_coord = math.sin(rotation_in_radians)*point[1]
-    return (y_coord+size[0]/2, -(x_coord)+size[1]/2)
+
+# The code below was to test an idea I had with fetching map data from the map (See the __init__ function in rendering.world.World or see the fetch function in utils.read_game_file.MapData)
+"""class stuff: # ! REMOVE
+    def __init__(self) -> None:
+        self.list_s = []
+    def fetch(self, to_fetch):
+        return eval("self." + to_fetch)
+    
+things = stuff()
+print(things.fetch("list_s"))"""

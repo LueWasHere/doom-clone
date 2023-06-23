@@ -1,1 +1,0 @@
-# Read the map data stored in the map files
