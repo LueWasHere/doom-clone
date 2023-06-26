@@ -1,0 +1,25 @@
+00 4D 61 70 00
+^ Header, zero byte to indicate file begins, this will be used when the map data is compiled into a game data file along with scripts and the like, 
+the following bytes (4D 61 70) are the ascii for "Map". The trailing zero indicates if the map is compressed or not, 00 for no, FF for yes.
+[264 byte block]
+The 256 bytes store vertex positions, the first 12 bytes are the first vertex in a block, this allows 
+for each integer value to have 4 bytes (32-bits) of information allowing there to be max 22 coordinates
+stored in one block. In this system every vertex is assumed to be connected.
+The 3rd byte asserts the Z position with ground level being at 0Z and with 1 tick in the Z direction being counted has the height of doom-guy.
+Should the full 256 bytes be used the last coordinate in the series should be repeated, this will signal the end of the block to the map reader and it will skip 
+to the next block indicator
+FF
+this next byte is a block indicator, a block indicater should be placed between blocks, but not between the header and a block, to indicate whether or not there
+is a block following the block indicator. If there is no block and this is the end of the vertex data the byte will be set to FF otherwise it will be set to 00.
+[256 byte block]
+This block stores entities, same 3 coordinate system with 32-bits per integer, but there is a fourth byte accosiated with each coordinate, entity type, 00 for
+the player, 01 Zombie, 02 Imp, 03 Demon, 04 Specter, 05 Lost Soul, 06 Cacodemon, 07 Pain Elemental, 08 Mancubus, 09 Baron of Hell, 0A Hell Knight, 0B Revenant,
+0C Arch-Vile, 0D Arachnotron, 0E Cyberdemon, 0F Spider Mastermind, 10 The Icon of Sin, 11 Health Bonus, 12 Stimpack, 13 Medikit, 14 Supercharge, 15 Armor Bonus, 
+16 Armor, 17 Mega Armor, 18 Backpack, 19 Berserk, 1A Computer Area Map, 1B Invuln, 1C Light Visor, 1D Megasphere, 1E Partial Invisibility, 1F Radsuit, 20 Bullets,
+21 Shells, 22 Rockets, 23 Cell Energy, 24 Blue Card, 25 Yellow Card, 26 Red Card, 27 Blue Skull, 28 Yellow Skull, 29 Red Skull, 2A Chainsaw, 2B Pistol, 2C Shotgun,
+2D Chaingun, 2E Rocket Launcher, 2F Plasma Gun, 30 BFG9000
+Same padding rules as with the vertex block
+FF
+^ Block indicator
+45 6E 64 FF
+Footer, spells "End" in ascii then uses a FF byte to signal the complete end
